@@ -1,0 +1,75 @@
+#the-canvas {
+  margin: 0px auto;
+  border-radius: 15px;
+  background-image: url('./images/conveyor_belt.jpg'); 
+  background-size: contain;
+  margin-top: 30px;
+}
+
+body {
+  background-color: #bec5d1;
+  background-image: url(./images/logo.png);
+  background-repeat: no-repeat;
+}
+
+.start-page {
+  display: flex;
+  text-align: center;
+  flex-flow: column;
+}
+
+.game{
+  /* background-image: url('./images/conveyor_belt.jpg'); */
+  width:100%;
+  height:750px;
+  position: relative;
+  overflow: hidden;
+}
+
+#game-board {
+  float: left;
+  padding: 20px 0px;
+  /* background-image: url('./images/conveyor_belt.jpg'); 
+  background-size: contain; */
+}
+
+.score{
+  font-size: 500px;
+  z-index: 20;
+  font-family: arial;
+  color: #d7e4d9;
+  user-select:none;
+  width:100%;
+  text-align:center;
+}
+
+.sushi{
+  
+  width: 100px;
+  height:100px;
+  position:absolute;
+  top: -150px;
+  transition: transform 1.5s linear;
+  cursor: pointer;
+  z-index:100;
+}
+
+.cat {
+  width: 10%;
+  background-color: #dee5ef;
+  padding-bottom: 8px;
+}
+
+.cat2 {
+  width: 10%;
+  background-color: #dee5ef;
+  padding-bottom: 8px;
+}
+.sushipic {
+  width: 50%;
+  padding-bottom: 20px;
+}
+
+.move{
+   transform:translateY(120vh);
+}
