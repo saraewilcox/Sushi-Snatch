@@ -13,13 +13,16 @@ class Game {
       }
     }
      loop (){
-         this.clearScreen;
-         this.backgroundPaint;
+         this.clearScreen();
+         this.backgroundPaint();
          this.updateSushi();
          this.paintSushi();
+        //  this.clearScreen;
+        //  this.backgroundPaint;
          this.counter ++;
          if (this.gameisrunning) {
             window.requestAnimationFrame((timestamp) => this.loop(timestamp));
+            
          }
      } 
      paintSushi (){
@@ -33,7 +36,7 @@ class Game {
         context.clearRect(0, 0, this.canvas.width, this.canvas.height);
      }
      backgroundPaint(){
-        this.backgroundImage.src = "./images/conveyor_belt.jpg";
+        this.backgroundImage.src = "../sushi_snatch/images/conveyor_belt.jpg";
         this.ctx.drawImage(this.backgroundImage, 0, 0, this.canvas.width, this.canvas.height);
      }
 }
