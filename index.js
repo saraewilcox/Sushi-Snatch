@@ -1,5 +1,5 @@
 let score = 0;
-let isSushiArray = ["./images/sushi_1.jpg", "./images/cat_sushi.jpg"]
+let isSushiArray = ["./images/sushi_1.png", "./images/sushi_4.png", "./images/sushi_5.png", "./images/cat_sushi.png", "./images/cat_sushi_2.png"]
 
 document.getElementById('game-board').style.display = 'none';
 const myCanvas = document.getElementById('the-canvas');
@@ -22,11 +22,11 @@ function random(min,max){
 
 function dropSushi(){
   let height = (Math.random() * 25) + 50; //length let height = Math.floor(Math.random()*100);
-  let velocity = Math.random() * (3 - 1) + 1;  //velocity
+  let velocity = Math.random() * (4 - 1) + 1;  //velocity
   let width = (Math.random() * 25) + 50; //size let width = Math.floor(Math.random()*100);
-let randomElement = isSushiArray[Math.floor(Math.random() * isSushiArray.length)]
-console.log(randomElement)
-let isCat = randomElement.includes('cat')
+  let randomElement = isSushiArray[Math.floor(Math.random() * isSushiArray.length)]
+  //console.log(randomElement)
+  let isCat = randomElement.includes('cat')
 
   game.sushiArray.push(new Sushi(game, height, velocity, width, randomElement, isCat))
 }
@@ -35,32 +35,18 @@ myCanvas.addEventListener('mousedown', event => {
   game.sushiArray.forEach((element, index) => {
     if(event.layerX > element.x && event.layerX < (element.x + element.width) && event.layerY > element.y && event.layerY < (element.y + element.height)) {
       if(element.isCat) {
-        console.log(`that's a cat`)
+        score -=1;
+        document.getElementById('score').innerHTML = score;
+        //console.log(`that's a cat`)
       } else {
         game.sushiArray.splice(index, 1)
-        console.log('sushi time')
-
+        score +=1;
+        document.getElementById('score').innerHTML = score;
+        //console.log('sushi time')
       }
-      
     }
   })
 })
-
-
-
-
-//scoring:
-$(document).on('click', '.sushi', function(){
-
-  if($(this).data("test")){
-    score += 1;
-  } else {
-    score -= 1;
-  }
-  
-  $(".score").game.html(score);
-  $(this).remove();
-});
 
 ///////////////////////////////////////////////////////
 // countdown clock:
@@ -132,8 +118,14 @@ function startTimer() {
 
     if (timeLeft === 0) {
       onTimesUp();
+      stopDraw();
     }
   }, 1000);
+}
+
+function stopDraw(){
+  alert("GAME OVER")
+  document.getElementById('score').innerHTML = 0;
 }
 
 function formatTime(time) {

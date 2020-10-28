@@ -8,7 +8,7 @@ class Game {
     this.counter = 0;
     }
     updateSushi (){
-        if (this.counter %180 === 0) { 
+        if (this.counter %30 === 0) { 
           dropSushi();
       }
     }
@@ -17,13 +17,10 @@ class Game {
          this.backgroundPaint();
          this.updateSushi();
          this.paintSushi();
-        //  this.clearScreen;
-        //  this.backgroundPaint;
          this.counter ++;
          if (this.gameisrunning) {
             window.requestAnimationFrame((timestamp) => this.loop(timestamp));
-            
-         }
+            } 
      } 
      paintSushi (){
          this.sushiArray.forEach(sushi => {

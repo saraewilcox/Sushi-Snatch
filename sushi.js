@@ -9,7 +9,6 @@ class Sushi {
       this.image = new Image();
       this.image.src = src;
       this.isCat = isCat
-    //  this.isSushi = isSushi;
       this.game = game;
     }
 
@@ -21,15 +20,4 @@ class Sushi {
     dropping() {
         this.y += this.velocity;
     }
-
-
-    // $(setTimeout(function(){
-    //   this.isSushi.addClass("move"); 
-    // }), random(0, 5000) );
-
-    // this.isSushi("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend",
-    // function(event) {
-    //   $(this).remove();
-    // });
-
   }

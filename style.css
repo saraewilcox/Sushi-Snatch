@@ -1,16 +1,42 @@
+#container canvas, #overlay {
+  position: absolute;
+}
+
 #the-canvas {
   margin: 0px auto;
   border-radius: 15px;
   background-image: url('./images/conveyor_belt.jpg'); 
   background-size: contain;
-  margin-top: 30px;
+  margin-top: 5px;
+  border: 1px solid black;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
-/* body > .game-intro{
-  background-color: #bec5d1;
-  background-image: url(./images/logo.png);
-  background-repeat: no-repeat;
-} ADD THIS BACK IN LATER!!!!!!!*/
+#game-board > #app {
+  position: relative;
+  float: right;
+  padding-right: 300px;
+  padding-top: 80px;
+}
+
+#game-board > #score {
+  float: left;
+  position: absolute;
+  padding-left: 150px;
+  padding-top: 50px;
+}
+
+body.gamepage {
+  font-family: sans-serif;
+  display: grid;
+  height: 100vh;
+  place-items: center;
+  background-image: url(./images/modern_japanese_art.jpg);
+}
 
 .start-page {
   display: flex;
@@ -18,7 +44,7 @@
   flex-flow: column;
 }
 
-.game{
+.game {
   background: #efefef;
   width:100%;
   height:750px;
@@ -26,16 +52,13 @@
   overflow: hidden;
 }
 
-
-#game-board {
-  float: left;
-  padding: 20px 0px;
-  /* background-image: url('./images/conveyor_belt.jpg'); 
-  background-size: contain; */
+.game-start > img {
+  height: 300px;
+  width: 350px;
 }
 
-.score{
-  font-size: 500px;
+#score {
+  font-size: 100px;
   z-index: 20;
   font-family: arial;
   color: #d7e4d9;
@@ -44,7 +67,7 @@
   text-align:center;
 }
 
-.sushi{
+.sushi {
   width: 100px;
   height:100px;
   position:absolute;
@@ -75,34 +98,18 @@
   background-color: #dee5ef;
 }
 
-/* .move{
-   transform:translateY(120vh);
-} */
-
-.counter{
-  width:100%;
-  margin: 0 auto;
-  text-align:center;
-  font-family:arial;
-  color:red;
-  font-weight:bold;
-  padding-top:10px;
-  font-size:20px;
-  position:relative;
-  z-index:9999;
-}
-
-body {
-  font-family: sans-serif;
-  display: grid;
-  height: 100vh;
-  place-items: center;
-}
+body.firstpage > .el-4 {
+  background-color: #f39c12;
+  color: white;
+  background-position: 60% 70%, top left;
+  background-repeat: no-repeat, space no-repeat;
+  background-image: url(logo.png), url(tuna_roll.png);
+  }
 
 .base-timer {
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 100px;
+  height: 100px;
 }
 
 .base-timer__svg {
@@ -143,11 +150,11 @@ body {
 
 .base-timer__label {
   position: absolute;
-  width: 300px;
-  height: 300px;
+  width: 100px;
+  height: 100px;
   top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 48px;
+  font-size: 32px;
 }
