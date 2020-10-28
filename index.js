@@ -14,6 +14,10 @@ window.onload = () => {
 function startGame() {
   document.getElementById('game-board').style.display = 'block';
   game.loop()
+  const soundToggle = document.getElementById("toggleSound");
+  const fxToggle = document.getElementById("toggleFX");
+  soundToggle.addEventListener("click", this.handleAudioClick);
+  fxToggle.addEventListener("click", this.handleFXClick);
 }
 
 function random(min,max){
@@ -47,6 +51,36 @@ myCanvas.addEventListener('mousedown', event => {
     }
   })
 })
+
+//Places moves on the board
+// function chooseDiff() {
+// 			if (score < 5) {
+//        (difficulty === 'easy') 
+
+// 			  } else if (score >5 && score <10) {
+//        (difficulty === 'medium') 
+
+// 				} else {
+// 				(difficulty === 'hard')
+// 				}
+//     }
+    
+// function getCursorPosition(canvas, event) {
+//   const rect = canvas.getBoundingClientRect()
+//   const x = event.clientX - rect.left
+//   const y = event.clientY - rect.top
+//   console.log("x: " + x + " y: " + y)
+// }
+
+// const canvas = document.querySelector('canvas')
+// canvas.addEventListener('mousedown', function(e) {
+//   getCursorPosition(canvas, e)
+// })
+
+// function newOrReset(){
+//   endGame();
+//   StartGame();
+// }
 
 ///////////////////////////////////////////////////////
 // countdown clock:
@@ -124,7 +158,14 @@ function startTimer() {
 }
 
 function stopDraw(){
-  alert("GAME OVER")
+  if (score < 0) {
+    alert("YOU LOST SOOOOOO MANY SUSHI") //play sad game over sound
+  } else if (score === 0) {
+    alert("NO SUSHI FOR YOU!")//play I'm so hungry sound
+  } else { 
+    alert(`YOU SAVED ${score} SUSHIS!`) //play I think I'm turning Japanese
+  }
+  
   document.getElementById('score').innerHTML = 0;
 }
 

@@ -1,11 +1,46 @@
+body.firstpage {
+  background-color: #f39c12;
+  color: white;
+  /* background-position: 60% 70%, top left;
+  background-repeat: no-repeat, space no-repeat;
+  background-image: url(logo.png), url(tuna_roll.png); */
+  }
+
+#toggleSound, #toggleFX{
+  display: block;
+  max-width:30px;
+  max-height:30px;
+  width: auto;
+  height: auto;
+}
+.sound {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+  
+#toggleSound:hover, #toggleFX:hover{
+  cursor: pointer;
+}
+
 #container canvas, #overlay {
   position: absolute;
 }
 
+#start-button
+{
+ cursor:pointer;
+ height: 150px;
+ width: 200px;
+ padding-right: 120px;
+ padding-bottom: 50px;
+}
+
 #the-canvas {
   margin: 0px auto;
-  border-radius: 15px;
-  background-image: url('./images/conveyor_belt.jpg'); 
+  /* border-radius: 15px;
+  background-image: url('images/conveyor_belt.jpg');  */
   background-size: contain;
   margin-top: 5px;
   border: 1px solid black;
@@ -19,7 +54,7 @@
 #game-board > #app {
   position: relative;
   float: right;
-  padding-right: 300px;
+  padding-right: 275px;
   padding-top: 80px;
 }
 
@@ -89,7 +124,7 @@ body.gamepage {
   padding-bottom: 8px;
 }
 .sushipic {
-  width: 50%;
+  width: 5px;
   padding-bottom: 10px;
 }
 
@@ -98,14 +133,19 @@ body.gamepage {
   background-color: #dee5ef;
 }
 
-body.firstpage > .el-4 {
-  background-color: #f39c12;
-  color: white;
-  background-position: 60% 70%, top left;
-  background-repeat: no-repeat, space no-repeat;
-  background-image: url(logo.png), url(tuna_roll.png);
-  }
+/* body button {
+  float: left;
+  font-size: 30px;
+  background-color: #870007;
+  color: #fff;
+  padding: 20px 40px;
+  border: 0;
+  box-shadow: 0;
+  border-radius: 5px;
+  margin-bottom: 20px;
+} */
 
+  
 .base-timer {
   position: relative;
   width: 100px;
@@ -122,12 +162,12 @@ body.firstpage > .el-4 {
 }
 
 .base-timer__path-elapsed {
-  stroke-width: 7px;
+  stroke-width: 10px;
   stroke: grey;
 }
 
 .base-timer__path-remaining {
-  stroke-width: 7px;
+  stroke-width: 10px;
   stroke-linecap: round;
   transform: rotate(90deg);
   transform-origin: center;
@@ -137,11 +177,11 @@ body.firstpage > .el-4 {
 }
 
 .base-timer__path-remaining.green {
-  color: rgb(65, 184, 131);
+  color: rgb(122, 170, 122)
 }
 
 .base-timer__path-remaining.orange {
-  color: orange;
+  color: rgb(238, 200, 131);
 }
 
 .base-timer__path-remaining.red {
@@ -149,6 +189,10 @@ body.firstpage > .el-4 {
 }
 
 .base-timer__label {
+  font-size: 32px;
+  z-index: 20;
+  color: #d7e4d9;
+  font-family: arial;
   position: absolute;
   width: 100px;
   height: 100px;
@@ -156,5 +200,18 @@ body.firstpage > .el-4 {
   display: flex;
   align-items: center;
   justify-content: center;
+  
+
+  /* top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 32px;
+  z-index: 20;
+  font-family: arial;
+  color: #d7e4d9;
+  user-select:none;
+  width:100%;
+  text-align:center;
+  padding-bottom: 20px; */
 }
