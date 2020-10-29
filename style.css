@@ -16,6 +16,9 @@ body.firstpage {
   align-items: center;
   width: 100%;
   justify-content: space-evenly;
+  color: rgb(255, 230, 0);
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  font-weight: bolder;
 }
   
 #toggleSound:hover{
@@ -25,7 +28,7 @@ body.firstpage {
 #container canvas, #overlay {
   position: absolute;
 }
-
+/* logo image: */
 #start-button
 {
  cursor:pointer;
@@ -64,7 +67,7 @@ body.firstpage {
 
 }
 
-#the-canvas {
+#thecanvas {
   margin: 0px auto;
   /* border-radius: 15px;
   background-image: url('images/conveyor_belt.jpg');  */
@@ -78,14 +81,14 @@ body.firstpage {
   display: block;
 }
 
-#game-board > #app {
+#gameboard > #app {
   position: relative;
   float: right;
   padding-right: 275px;
   padding-top: 80px;
 }
 
-#game-board > #score {
+#gameboard > #score {
   float: left;
   position: absolute;
   padding-left: 150px;
@@ -97,7 +100,7 @@ body.gamepage {
   display: grid;
   height: 100vh;
   place-items: center;
-  background-image: url(./images/modern_japanese_art.jpg);
+  background-image: url(./images/art.jpg);
 }
 
 .start-page {
@@ -241,6 +244,18 @@ sushigoal {
 .mode:active {
 	position:relative;
 	top:1px;
+}
+
+.button.pause {
+  width: 74px;
+  height: 74px;
+  border-style: solid;
+  border-width: 37px;
+  border-color: #202020;
+  border-style: double;
+  border-width: 0px 37px 0px 37px;
+  border-width: 0px 0px 0px 37px;
+  border-color: #202020;
 }
 
 .base-timer {

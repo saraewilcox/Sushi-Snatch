@@ -1,8 +1,8 @@
 let score = 0;
 let isSushiArray = ["./images/sushi_1.png", "./images/sushi_4.png", "./images/sushi_5.png", "./images/cat_sushi.png", "./images/cat_sushi_2.png"]
 
-document.getElementById('game-board').style.display = 'none';
-const myCanvas = document.getElementById('the-canvas');
+document.getElementById('gameboard').style.display = 'none';
+const myCanvas = document.getElementById('thecanvas');
 const ctx = myCanvas.getContext('2d');
 let game = new Game (myCanvas);
 let level = 1;
@@ -43,10 +43,10 @@ function setUpModeButtons(){
 
 // Start game
 function startGame() {
-  document.getElementById('game-board').style.display = 'block';
+  document.getElementById('gameboard').style.display = 'block';
   game.loop()
-  // const soundToggle = document.getElementById("toggleSound");
-  // soundToggle.addEventListener("click", this.handleAudioClick);
+  const soundToggle = document.getElementById("toggleSound");
+  soundToggle.addEventListener("click", this.handleAudioClick);
 }
 
 function random(min,max){
@@ -54,8 +54,8 @@ function random(min,max){
 }
 
 function dropSushi(){
-  let height = (Math.random() * 25) + 50; //length let height = Math.floor(Math.random()*100);
-  let velocity = 0//Math.random() * (4 - 1) + 1;  //velocity
+  let height = (Math.random() * 25) + 50; 
+  let velocity = 0
 
   switch (game.level) {
     case 1 : velocity=(Math.random() * (2 - 1) + 1); 
@@ -68,10 +68,10 @@ function dropSushi(){
     break;
     }
 
-  let width = (Math.random() * 25) + 50; //size let width = Math.floor(Math.random()*100);
+  let width = (Math.random() * 25) + 50; 
 
 
-   let randomElement = isSushiArray[Math.floor(Math.random() * isSushiArray.length)]
+  let randomElement = isSushiArray[Math.floor(Math.random() * isSushiArray.length)]
   
   //console.log(randomElement)
   let isCat = randomElement.includes('cat')
@@ -179,18 +179,18 @@ function startTimer() {
     }
   }, 1000);
 }
-
-function stopDraw(){
-  if (score < 0) {
-    alert("YOU LOST SOOOOOO MANY SUSHI") //play sad game over sound
-  } else if (score === 0) {
-    alert("NO SUSHI FOR YOU!")//play I'm so hungry sound
-  } else { 
-    alert(`YOU SAVED ${score} SUSHIS!`) //play I think I'm turning Japanese
-  }
-  this.isRunning=false;
-  document.getElementById('score').innerHTML = 0;
-}
+/////////////////////////////////RE-DO THIS TO NOT BE ALERTS!!!!!!!!!!!!!!!!
+// function stopDraw(){
+//   if (score < 0) {
+//     alert("YOU LOST SOOOOOO MANY SUSHI") //play sad game over sound
+//   } else if (score === 0) {
+//     alert("NO SUSHI FOR YOU!")//play I'm so hungry sound
+//   } else { 
+//     alert(`YOU SAVED ${score} SUSHIS!`) //play I think I'm turning Japanese
+//   }
+//   this.isRunning=false;
+//   document.getElementById('score').innerHTML = 0;
+// }
 
 function formatTime(time) {
   const minutes = Math.floor(time / 60);

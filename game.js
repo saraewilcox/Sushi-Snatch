@@ -51,7 +51,7 @@ class Game {
         context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
     backgroundPaint(){
-        this.backgroundImage.src = './images/conveyor_belt-removebg-preview.jpg';
+        this.backgroundImage.src = './images/conveyor.jpg';
         this.ctx.drawImage(this.backgroundImage, 0, 0, this.canvas.width, this.canvas.height);
     }
 }
