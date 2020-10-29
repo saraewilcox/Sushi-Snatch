@@ -22,7 +22,7 @@ class Game {
             case 2 : if (this.counter %100 === 0) { 
                 dropSushi(); break;
             }
-            case 3 : if (this.counter %60 === 0) { 
+            case 3 : if (this.counter %50 === 0) { 
                 dropSushi(); break;
             }
         } 
@@ -51,7 +51,7 @@ class Game {
         context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
     backgroundPaint(){
-        this.backgroundImage.src = './images/conveyor_belt.jpg';
+        this.backgroundImage.src = './images/conveyor_belt-removebg-preview.jpg';
         this.ctx.drawImage(this.backgroundImage, 0, 0, this.canvas.width, this.canvas.height);
     }
 }

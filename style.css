@@ -3,7 +3,7 @@ body.firstpage {
   color: white;
   }
 
-/* #toggleSound {
+#toggleSound {
   display: block;
   display: center;
   max-width:50px;
@@ -20,7 +20,7 @@ body.firstpage {
   
 #toggleSound:hover{
   cursor: pointer;
-} */
+}
 
 #container canvas, #overlay {
   position: absolute;
@@ -243,7 +243,6 @@ sushigoal {
 	top:1px;
 }
 
-  
 .base-timer {
   position: relative;
   width: 100px;

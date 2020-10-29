@@ -22,9 +22,6 @@ class Sushi {
       this.velocity=velocity;
     }
 
-    setFrequency(frequency) {
-      this.frequency=frequency;
-    }
     dropping() {
       if (this.x < 475) {
         this.x--;

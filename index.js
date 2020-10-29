@@ -12,11 +12,9 @@ window.onload = () => {
   //startGame();
   init();
 }
-
 init();
-
 function init(){
-	setUpModeButtons();
+  setUpModeButtons();
 }
 
 //set up easy, medium, hard buttons
@@ -29,19 +27,12 @@ function setUpModeButtons(){
 			modeButtons[2].classList.remove("selected");
 			this.classList.add("selected");
 			if(this.textContent === "Easy"){
-        console.log('clicked');
-        console.log('level1');
-
         resetGame();
 				game.setLevel(1)
 			} else if(this.textContent === "Medium"){
-        console.log('clicked');
-        console.log('level2');
         resetGame();
 				game.setLevel(2);
-			} else if(this.textContent === "Hard"){
-        console.log('clicked');
-        console.log('level3');
+			} else if(this.textContent === "Impossible"){
         resetGame();
 				game.setLevel(3);
 			}
@@ -65,18 +56,17 @@ function random(min,max){
 function dropSushi(){
   let height = (Math.random() * 25) + 50; //length let height = Math.floor(Math.random()*100);
   let velocity = 0//Math.random() * (4 - 1) + 1;  //velocity
-  let frequency = 0
+
   switch (game.level) {
-    case 1 : velocity=(Math.random() * (1 - 1) + 1); 
+    case 1 : velocity=(Math.random() * (2 - 1) + 1); 
         break;
 
-    case 2 : velocity=(Math.random() * (2 - 1) + 1);
+    case 2 : velocity=(Math.random() * (6 - 1) + 1);
         break;
     
-    case 3 : velocity=(Math.random() * (5 - 1) + 1);
+    case 3 : velocity=(Math.random() * (10 - 1) + 1);
     break;
     }
-
 
   let width = (Math.random() * 25) + 50; //size let width = Math.floor(Math.random()*100);
 
@@ -109,6 +99,7 @@ myCanvas.addEventListener('mousedown', event => {
 function resetGame() {
   clearInterval(startTimer);
   score = 0;
+  this.isRunning = false;
   //timeLeft = 0;
   startTimer = null;
 
@@ -136,7 +127,7 @@ const COLOR_CODES = {
   }
 };
 
-const TIME_LIMIT = 30;
+const TIME_LIMIT = 30;//seconds
 let timePassed = 0;
 let timeLeft = TIME_LIMIT;
 let timerInterval = null;
@@ -197,7 +188,7 @@ function stopDraw(){
   } else { 
     alert(`YOU SAVED ${score} SUSHIS!`) //play I think I'm turning Japanese
   }
-  
+  this.isRunning=false;
   document.getElementById('score').innerHTML = 0;
 }
 
@@ -244,5 +235,3 @@ function setCircleDasharray() {
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
 }
-
-
