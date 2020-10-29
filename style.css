@@ -1,15 +1,13 @@
 body.firstpage {
   background-color: #f39c12;
   color: white;
-  /* background-position: 60% 70%, top left;
-  background-repeat: no-repeat, space no-repeat;
-  background-image: url(logo.png), url(tuna_roll.png); */
   }
 
-#toggleSound, #toggleFX{
+/* #toggleSound {
   display: block;
-  max-width:30px;
-  max-height:30px;
+  display: center;
+  max-width:50px;
+  max-height:50px;
   width: auto;
   height: auto;
 }
@@ -17,12 +15,12 @@ body.firstpage {
   display: flex;
   align-items: center;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
   
-#toggleSound:hover, #toggleFX:hover{
+#toggleSound:hover{
   cursor: pointer;
-}
+} */
 
 #container canvas, #overlay {
   position: absolute;
@@ -35,6 +33,35 @@ body.firstpage {
  width: 200px;
  padding-right: 120px;
  padding-bottom: 50px;
+ border: 15px solid rgb(253, 52, 2);
+}
+
+#start-button > img:hover {
+  animation: bounce 1s infinite
+}
+
+@keyframes bounce {
+  0% {
+      top: 0;
+      animation-timing-function: ease-in;
+  }
+  16%, 48%, 78%, 100% {
+      top: 190px;
+      animation-timing-function: ease-out;
+  }
+  32% {
+      top: 50px;
+      animation-timing-function: ease-in;
+  }
+  62% {
+      top: 100px;
+      animation-timing-function: ease-in;
+  }
+  90% {
+      top: 150px;
+      animation-timing-function: ease-in;
+  }
+
 }
 
 #the-canvas {
@@ -42,7 +69,7 @@ body.firstpage {
   /* border-radius: 15px;
   background-image: url('images/conveyor_belt.jpg');  */
   background-size: contain;
-  margin-top: 5px;
+  padding-bottom: 5px;
   border: 1px solid black;
   padding-left: 0;
   padding-right: 0;
@@ -92,6 +119,29 @@ body.gamepage {
   width: 350px;
 }
 
+.restart {
+	box-shadow:inset 0px -3px 7px 0px #29bbff;
+	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+	border-radius:3px;
+	border:1px solid #0b0e07;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:19px;
+	padding:9px 26px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+}
+.restart:hover {
+	background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+	background-color:#0688fa;
+}
+.restart:active {
+	position:relative;
+	top:1px;
+}
+
 #score {
   font-size: 100px;
   z-index: 20;
@@ -124,26 +174,74 @@ body.gamepage {
   padding-bottom: 8px;
 }
 .sushipic {
-  width: 5px;
-  padding-bottom: 10px;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s infinite;
 }
 
-.sushigoal {
+/* Scroll down indicator (bouncing) */
+@-webkit-keyframes bounce {
+0%, 20%, 50%, 80%, 100% {
+  -webkit-transform: translateY(0); }
+40% {
+  -webkit-transform: translateY(-30px); }
+60% {
+  -webkit-transform: translateY(-15px); } }
+@-moz-keyframes bounce {
+0%, 20%, 50%, 80%, 100% {
+  -moz-transform: translateY(0); }
+40% {
+  -moz-transform: translateY(-30px); }
+60% {
+  -moz-transform: translateY(-15px); } }
+@keyframes bounce {
+0%, 20%, 50%, 80%, 100% {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0); }
+40% {
+  -webkit-transform: translateY(-30px);
+  -moz-transform: translateY(-30px);
+  -ms-transform: translateY(-30px);
+  -o-transform: translateY(-30px);
+  transform: translateY(-30px); }
+60% {
+  -webkit-transform: translateY(-15px);
+  -moz-transform: translateY(-15px);
+  -ms-transform: translateY(-15px);
+  -o-transform: translateY(-15px);
+  transform: translateY(-15px); } 
+
+sushigoal {
   width: 8%;
   background-color: #dee5ef;
 }
+}
 
-/* body button {
-  float: left;
-  font-size: 30px;
-  background-color: #870007;
-  color: #fff;
-  padding: 20px 40px;
-  border: 0;
-  box-shadow: 0;
-  border-radius: 5px;
-  margin-bottom: 20px;
-} */
+.mode {
+	box-shadow: 3px 4px 0px 0px #8a2a21;
+	background:linear-gradient(to bottom, #b8cde7 5%, #3d4240 100%);
+	background-color:#f3a745;
+	border-radius:18px;
+	border:1px solid #cea39f;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:18px;
+	padding:10px 20px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #810e05;
+}
+.mode:hover {
+	background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+	background-color:#f24437;
+}
+.mode:active {
+	position:relative;
+	top:1px;
+}
 
   
 .base-timer {
@@ -177,7 +275,7 @@ body.gamepage {
 }
 
 .base-timer__path-remaining.green {
-  color: rgb(122, 170, 122)
+  color: rgb(159, 173, 159)
 }
 
 .base-timer__path-remaining.orange {
@@ -200,18 +298,4 @@ body.gamepage {
   display: flex;
   align-items: center;
   justify-content: center;
-  
-
-  /* top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 32px;
-  z-index: 20;
-  font-family: arial;
-  color: #d7e4d9;
-  user-select:none;
-  width:100%;
-  text-align:center;
-  padding-bottom: 20px; */
 }

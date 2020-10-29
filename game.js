@@ -6,54 +6,52 @@ class Game {
     this.sushiArray = [];
     this.backgroundImage = new Image;
     this.counter = 0;
-    // this.handleAudioClick = this.handleAudioClick.bind(this);
-    // this.handleFXClick = this.handleFXClick.bind(this);
+    this.level = 1;
     this.sound = false;
     }
 
-//     updateSushi (){
-//         if (difficulty === 'easy') {
-//         (this.counter %40 === 0) { 
-//           dropSushi();
-//       } else if (difficulty === 'medium') {
-//         (this.counter %30 === 0) {
-//             dropSushi();
-//         } else {
-//         (this.counter %20 === 0) {
-//             dropSushi();
-//         }
-//     }
-// }
-// }
-
-    updateSushi (){
-        if (this.counter %30 === 0) { 
-          dropSushi();
-      }
+    setLevel(level) {
+        this.level = level;
     }
 
-     loop (){
-         this.clearScreen();
-         this.backgroundPaint();
-         this.updateSushi();
-         this.paintSushi();
-         this.counter ++;
-         if (this.gameisrunning) {
-            window.requestAnimationFrame((timestamp) => this.loop(timestamp));
+    updateSushi (){//frequency
+        switch (this.level) {
+            case 1 : if (this.counter %200 === 0) { 
+                dropSushi(); break;
             } 
-     } 
-     paintSushi (){
+            case 2 : if (this.counter %100 === 0) { 
+                dropSushi(); break;
+            }
+            case 3 : if (this.counter %60 === 0) { 
+                dropSushi(); break;
+            }
+        } 
+
+    }
+    
+    loop (){
+        this.clearScreen();
+        this.backgroundPaint();
+        this.updateSushi();
+        this.paintSushi();
+        this.counter ++;
+        if (this.gameisrunning) {
+        window.requestAnimationFrame((timestamp) => this.loop(timestamp));
+        } 
+    } 
+
+    paintSushi (){
          this.sushiArray.forEach(sushi => {
              sushi.draw();
              sushi.dropping();
-         })  
-     }
-     clearScreen (){
+        })  
+    }
+    clearScreen (){
         const context = this.ctx;
         context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-     }
-     backgroundPaint(){
+    }
+    backgroundPaint(){
         this.backgroundImage.src = './images/conveyor_belt.jpg';
         this.ctx.drawImage(this.backgroundImage, 0, 0, this.canvas.width, this.canvas.height);
-     }
+    }
 }

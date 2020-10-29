@@ -5,19 +5,57 @@ document.getElementById('game-board').style.display = 'none';
 const myCanvas = document.getElementById('the-canvas');
 const ctx = myCanvas.getContext('2d');
 let game = new Game (myCanvas);
+let level = 1;
+let modeButtons = document.querySelectorAll(".mode");
 
 window.onload = () => {
-  startGame();
+  //startGame();
+  init();
+}
+
+init();
+
+function init(){
+	setUpModeButtons();
+}
+
+//set up easy, medium, hard buttons
+function setUpModeButtons(){
+	for(var i = 0; i < modeButtons.length; i++) {
+		modeButtons[i].addEventListener("click", function(){
+      
+			modeButtons[0].classList.remove("selected");
+			modeButtons[1].classList.remove("selected");
+			modeButtons[2].classList.remove("selected");
+			this.classList.add("selected");
+			if(this.textContent === "Easy"){
+        console.log('clicked');
+        console.log('level1');
+
+        resetGame();
+				game.setLevel(1)
+			} else if(this.textContent === "Medium"){
+        console.log('clicked');
+        console.log('level2');
+        resetGame();
+				game.setLevel(2);
+			} else if(this.textContent === "Hard"){
+        console.log('clicked');
+        console.log('level3');
+        resetGame();
+				game.setLevel(3);
+			}
+			startGame();
+		});
+	}
 }
 
 // Start game
 function startGame() {
   document.getElementById('game-board').style.display = 'block';
   game.loop()
-  const soundToggle = document.getElementById("toggleSound");
-  const fxToggle = document.getElementById("toggleFX");
-  soundToggle.addEventListener("click", this.handleAudioClick);
-  fxToggle.addEventListener("click", this.handleFXClick);
+  // const soundToggle = document.getElementById("toggleSound");
+  // soundToggle.addEventListener("click", this.handleAudioClick);
 }
 
 function random(min,max){
@@ -26,9 +64,25 @@ function random(min,max){
 
 function dropSushi(){
   let height = (Math.random() * 25) + 50; //length let height = Math.floor(Math.random()*100);
-  let velocity = Math.random() * (4 - 1) + 1;  //velocity
+  let velocity = 0//Math.random() * (4 - 1) + 1;  //velocity
+  let frequency = 0
+  switch (game.level) {
+    case 1 : velocity=(Math.random() * (1 - 1) + 1); 
+        break;
+
+    case 2 : velocity=(Math.random() * (2 - 1) + 1);
+        break;
+    
+    case 3 : velocity=(Math.random() * (5 - 1) + 1);
+    break;
+    }
+
+
   let width = (Math.random() * 25) + 50; //size let width = Math.floor(Math.random()*100);
-  let randomElement = isSushiArray[Math.floor(Math.random() * isSushiArray.length)]
+
+
+   let randomElement = isSushiArray[Math.floor(Math.random() * isSushiArray.length)]
+  
   //console.log(randomElement)
   let isCat = randomElement.includes('cat')
 
@@ -52,36 +106,14 @@ myCanvas.addEventListener('mousedown', event => {
   })
 })
 
-//Places moves on the board
-// function chooseDiff() {
-// 			if (score < 5) {
-//        (difficulty === 'easy') 
+function resetGame() {
+  clearInterval(startTimer);
+  score = 0;
+  //timeLeft = 0;
+  startTimer = null;
 
-// 			  } else if (score >5 && score <10) {
-//        (difficulty === 'medium') 
-
-// 				} else {
-// 				(difficulty === 'hard')
-// 				}
-//     }
-    
-// function getCursorPosition(canvas, event) {
-//   const rect = canvas.getBoundingClientRect()
-//   const x = event.clientX - rect.left
-//   const y = event.clientY - rect.top
-//   console.log("x: " + x + " y: " + y)
-// }
-
-// const canvas = document.querySelector('canvas')
-// canvas.addEventListener('mousedown', function(e) {
-//   getCursorPosition(canvas, e)
-// })
-
-// function newOrReset(){
-//   endGame();
-//   StartGame();
-// }
-
+  //document.getElementById("timeLeft").innerHTML = timeLeft;
+}
 ///////////////////////////////////////////////////////
 // countdown clock:
 // Credit: Mateusz Rybczonec
@@ -92,7 +124,7 @@ const ALERT_THRESHOLD = 5;
 
 const COLOR_CODES = {
   info: {
-    color: "green"
+    color: "grey"
   },
   warning: {
     color: "orange",
@@ -212,3 +244,5 @@ function setCircleDasharray() {
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
 }
+
+

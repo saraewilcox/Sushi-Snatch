@@ -11,13 +11,20 @@
   <script src="https://use.fontawesome.com/0fcbe27086.js"></script>
 </head>
 <body class="gamepage">
-  <audio id="myAudio" autoplay loop src="./audio/roa-music-sakura-2020.mp3"  loop="true" preload="auto">
+  <!-- <audio id="myAudio" autoplay loop src="./audio/roa-music-sakura-2020.mp3"  loop="true" preload="auto">
   </audio>
-  <div class="sound">Music?&nbsp<i id="toggleSound" class="fa fa-volume-up fa-2x"><input type="button" name="restart" value="Restart" onclick="location.href='game.html';"></i>&nbspSoundFX?&nbsp<i id="toggleFX" class="fa fa-volume-up fa-2x"></i></div>
+  <div class="sound">Music?&nbsp<i id="toggleSound" class="fa fa-volume-up fa-2x"></i></div> -->
+  <input type="button" class="restart" value="Restart" onclick="location.href='game.html';">
+  <button class="mode">Easy</button>
+	<button class="mode">Medium</button>
+  <button class="mode selected">Hard</button>
+  
+
   <div id="game-board">
     <div id="score" style="width:100px;height:50px">00</div>
 
     <div id="app" style="width:100px;height:50px"></div>
+    
     <canvas id="the-canvas" width="1050" height="600" style="border:1px solid #000000;"></canvas>
     
   </div>  
@@ -28,7 +35,7 @@
 <script src="game.js"></script>
 <script src="index.js"></script>
 <script>
-  var audio = document.getElementById("myAudio");
-  audio.volume = 0.5;
+  // var audio = document.getElementById("myAudio");
+  // audio.volume = 0.5;
 </script>
 </html>
