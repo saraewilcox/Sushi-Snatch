@@ -3,6 +3,27 @@ body.firstpage {
   color: white;
   }
 
+#toggleSound {
+  display: block;
+  display: center;
+  max-width:50px;
+  max-height:50px;
+  width: auto;
+  height: auto;
+}
+.sound {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-evenly;
+  color: rgb(255, 230, 0);
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  font-weight: bolder;
+}
+  
+#toggleSound:hover{
+  cursor: pointer;
+}
 
 #container canvas, #overlay {
   position: absolute;
@@ -33,17 +54,7 @@ body.firstpage {
   float: left;
   position: absolute;
   padding-left: 150px;
-  padding-top: 80px;
-}
-
-#score {
-  font-size: 50px;
-  z-index: 20;
-  font-family: arial;
-  color: #d7e4d9;
-  user-select:none;
-  width:100%;
-  text-align:center;
+  padding-top: 70px;
 }
 
 body.gamepage {
@@ -78,7 +89,7 @@ body.gamepage {
 
 .restart {
 	box-shadow:inset 0px -3px 7px 0px #29bbff;
-	background:linear-gradient(to bottom, #95c6e4 5%, #0688fa 100%);
+	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
 	border-radius:3px;
 	border:1px solid #0b0e07;
 	display:inline-block;
@@ -97,6 +108,16 @@ body.gamepage {
 .restart:active {
 	position:relative;
 	top:1px;
+}
+
+#score {
+  font-size: 70px;
+  z-index: 20;
+  font-family: arial;
+  color: #d7e4d9;
+  user-select:none;
+  width:100%;
+  text-align:center;
 }
 
 .sushi {

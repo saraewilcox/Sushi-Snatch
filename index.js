@@ -1,13 +1,13 @@
 let score = 0;
+let highscore = localStorage.getItem("highscore");
 let isSushiArray = ["./images/sushi_1.png", "./images/sushi_4.png", "./images/sushi_5.png", "./images/cat_sushi.png", "./images/cat_sushi_2.png"]
-let app=0;
+
 document.getElementById('gameboard').style.display = 'none';
 const myCanvas = document.getElementById('thecanvas');
 const ctx = myCanvas.getContext('2d');
 let game = new Game (myCanvas);
 let level = 1;
 let modeButtons = document.querySelectorAll(".mode");
-
 
 window.onload = () => {
   init();
@@ -21,6 +21,7 @@ function init(){
 function setUpModeButtons(){
 	for(var i = 0; i < modeButtons.length; i++) {
 		modeButtons[i].addEventListener("click", function(){
+      
 			modeButtons[0].classList.remove("selected");
 			modeButtons[1].classList.remove("selected");
 			modeButtons[2].classList.remove("selected");
@@ -37,18 +38,14 @@ function setUpModeButtons(){
 			}
       startGame();
 		});
-  }
-  
+	}
 }
 
-function play() {
-  var audio = new Audio('./audio/roa-music-sakura-2020.mp3');
-  audio.play();
-}
-
+// Start game
 function startGame() {
   document.getElementById('gameboard').style.display = 'block';
   game.loop()
+  document.getElementById('pause-button').addEventListener('click', pause);
 
 }
 
@@ -62,20 +59,23 @@ function dropSushi(){
 
   switch (game.level) {
     case 1 : velocity=(Math.random() * (1 - 1) + 1); 
-      break;
+        break;
 
     case 2 : velocity=(Math.random() * (3 - 1) + 1);
-      break;
+        break;
     
     case 3 : velocity=(Math.random() * (10 - 1) + 1);
-      break;
+    break;
     }
 
   let width = (Math.random() * 25) + 50; 
+
+
   let randomElement = isSushiArray[Math.floor(Math.random() * isSushiArray.length)]
-  let isCat = randomElement.includes('cat')
-  game.sushiArray.push(new Sushi(game, height, velocity, width, randomElement, isCat))
   
+  let isCat = randomElement.includes('cat')
+
+  game.sushiArray.push(new Sushi(game, height, velocity, width, randomElement, isCat))
 }
 
 myCanvas.addEventListener('mousedown', event => {
@@ -98,33 +98,12 @@ myCanvas.addEventListener('mousedown', event => {
 function resetGame() {
   clearInterval(startTimer);
   score = 0;
-  //app = 0;
   this.isRunning = false;
-  //startTimer = null;
 }
-
-function pause() {
-  if (!game.isPause) {
-    game.isPause = true;
-    document.getElementById('pause-button').innerText = 'RESUME';
-    pause();
-  } else if (game.isPause) {
-    document.getElementById('pause-button').innerText = 'PAUSE';
-    game.isPause = false;
-    resume();
-    startGame();
-  }
-}
-window.addEventListener('keydown', (event) => {
-  const key = event.keyCode;
-  if (key === 80) {
-    pause();
-  }
-
-});
 
 function stopDraw(){
   let $gameover = $('#gameover');
+
   grow = function (size) {
       if (size < 50) {
           console.log(size);
@@ -189,6 +168,7 @@ document.getElementById("app").innerHTML = `
   )}</span>
 </div>
 `;
+
 startTimer();
 
 function onTimesUp() {
@@ -207,17 +187,9 @@ function startTimer() {
 
     if (timeLeft === 0) {
       onTimesUp();
+      stopDraw();
     }
   }, 1000);
-}
-
-function pause() {
-  clearInterval(this.timerInterval);
-  delete this.timerInterval
-}
-
-function resume () {
-  if (this.timerInterval) this.startTimer();
 }
 
 function formatTime(time) {
