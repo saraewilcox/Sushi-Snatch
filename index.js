@@ -7,6 +7,7 @@ const ctx = myCanvas.getContext('2d');
 let game = new Game (myCanvas);
 let level = 1;
 let modeButtons = document.querySelectorAll(".mode");
+let mysound;
 
 window.onload = () => {
   init();
@@ -36,13 +37,19 @@ function setUpModeButtons(){
 			}
       startGame();
 		});
-	}
+  }
+  
 }
 
-// Start game
+function play() {
+  var audio = new Audio('./audio/roa-music-sakura-2020.mp3');
+  audio.play();
+}
+
 function startGame() {
   document.getElementById('gameboard').style.display = 'block';
   game.loop()
+
 }
 
 function random(min,max){
@@ -68,6 +75,7 @@ function dropSushi(){
   let randomElement = isSushiArray[Math.floor(Math.random() * isSushiArray.length)]
   let isCat = randomElement.includes('cat')
   game.sushiArray.push(new Sushi(game, height, velocity, width, randomElement, isCat))
+  
 }
 
 myCanvas.addEventListener('mousedown', event => {
@@ -94,6 +102,26 @@ function resetGame() {
   this.isRunning = false;
   //startTimer = null;
 }
+
+function pause() {
+  if (!game.isPause) {
+    game.isPause = true;
+    document.getElementById('pause-button').innerText = 'RESUME';
+    pause();
+  } else if (game.isPause) {
+    document.getElementById('pause-button').innerText = 'PAUSE';
+    game.isPause = false;
+    resume();
+    startGame();
+  }
+}
+window.addEventListener('keydown', (event) => {
+  const key = event.keyCode;
+  if (key === 80) {
+    pause();
+  }
+
+});
 
 function stopDraw(){
   let $gameover = $('#gameover');
@@ -181,6 +209,15 @@ function startTimer() {
       onTimesUp();
     }
   }, 1000);
+}
+
+function pause() {
+  clearInterval(this.timerInterval);
+  delete this.timerInterval
+}
+
+function resume () {
+  if (this.timerInterval) this.startTimer();
 }
 
 function formatTime(time) {
