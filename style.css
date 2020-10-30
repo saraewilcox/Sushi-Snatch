@@ -3,27 +3,6 @@ body.firstpage {
   color: white;
   }
 
-#toggleSound {
-  display: block;
-  display: center;
-  max-width:50px;
-  max-height:50px;
-  width: auto;
-  height: auto;
-}
-#gamepage > #play {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: space-evenly;
-  color: rgb(255, 230, 0);
-  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
-  font-weight: bolder;
-}
-  
-#toggleSound:hover{
-  cursor: pointer;
-}
 
 #container canvas, #overlay {
   position: absolute;

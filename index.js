@@ -7,7 +7,7 @@ const ctx = myCanvas.getContext('2d');
 let game = new Game (myCanvas);
 let level = 1;
 let modeButtons = document.querySelectorAll(".mode");
-let mysound;
+
 
 window.onload = () => {
   init();
