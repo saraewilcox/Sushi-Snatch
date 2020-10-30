@@ -8,6 +8,7 @@ class Game {
     this.counter = 0;
     this.level = 1;
     this.sound = false;
+    this.isPause = false;
     }
 
     setLevel(level) {
@@ -16,7 +17,7 @@ class Game {
 
     updateSushi (){//frequency
         switch (this.level) {
-            case 1 : if (this.counter %200 === 0) { 
+            case 1 : if (this.counter %300 === 0) { 
                 dropSushi(); break;
             } 
             case 2 : if (this.counter %100 === 0) { 
@@ -35,7 +36,7 @@ class Game {
         this.updateSushi();
         this.paintSushi();
         this.counter ++;
-        if (this.gameisrunning) {
+        if (!game.isPause) {
         window.requestAnimationFrame((timestamp) => this.loop(timestamp));
         } 
     } 

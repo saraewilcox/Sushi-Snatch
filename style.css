@@ -28,44 +28,6 @@ body.firstpage {
 #container canvas, #overlay {
   position: absolute;
 }
-/* logo image: */
-#start-button
-{
- cursor:pointer;
- height: 150px;
- width: 200px;
- padding-right: 120px;
- padding-bottom: 50px;
- border: 15px solid rgb(253, 52, 2);
-}
-
-#start-button > img:hover {
-  animation: bounce 1s infinite
-}
-
-@keyframes bounce {
-  0% {
-      top: 0;
-      animation-timing-function: ease-in;
-  }
-  16%, 48%, 78%, 100% {
-      top: 190px;
-      animation-timing-function: ease-out;
-  }
-  32% {
-      top: 50px;
-      animation-timing-function: ease-in;
-  }
-  62% {
-      top: 100px;
-      animation-timing-function: ease-in;
-  }
-  90% {
-      top: 150px;
-      animation-timing-function: ease-in;
-  }
-
-}
 
 #thecanvas {
   margin: 0px auto;
@@ -100,7 +62,10 @@ body.gamepage {
   display: grid;
   height: 100vh;
   place-items: center;
-  background-image: url(./images/art.jpg);
+  background-image: url(./images/pattern.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .start-page {
@@ -177,8 +142,45 @@ body.gamepage {
   padding-bottom: 8px;
 }
 .sushipic {
-  -webkit-animation: bounce 2s infinite;
-  animation: bounce 2s infinite;
+  height: 250px;
+  width: 250px;
+  margin: 0 auto;
+  background-color: #f39c12;
+  animation-name: stretch;
+  animation-duration: 1.5s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  padding-top: 100px;
+}
+
+@keyframes stretch {
+  0% {
+    transform: scale(.3);
+    background-color: red;
+    border-radius: 100%;
+  }
+  50% {
+    background-color: orange;
+  }
+  100% {
+    transform: scale(1.5);
+    background-color: yellow;
+  }
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  /* align-items: center;
+  justify-content: center; */
 }
 
 /* Scroll down indicator (bouncing) */
@@ -218,27 +220,41 @@ body.gamepage {
 
 sushigoal {
   width: 8%;
-  background-color: #dee5ef;
-}
+  background-color: #f39c12;
+  }
 }
 
+.container a {
+  display: flex;
+  background-color: rgb(191, 189, 175);
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  padding: 10px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  align-items: center;
+}
 .mode {
 	box-shadow: 3px 4px 0px 0px #8a2a21;
-	background:linear-gradient(to bottom, #b8cde7 5%, #3d4240 100%);
-	background-color:#f3a745;
+	background:linear-gradient(to bottom, #42616e 5%, #1c1b72 100%);
+	background-color:#c62d1f;
 	border-radius:18px;
-	border:1px solid #cea39f;
-	display:inline-block;
+	border:1px solid #d02718;
+	display:flex;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
-	font-size:18px;
-	padding:10px 20px;
+	font-size:17px;
+	padding:15px 25px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #810e05;
+  text-shadow:0px 1px 0px #810e05;
+  margin-left: auto;
+  margin-right: auto;
 }
 .mode:hover {
-	background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+	background:linear-gradient(to bottom, #f2e637 5%, #c62d1f 100%);
 	background-color:#f24437;
 }
 .mode:active {
@@ -246,17 +262,10 @@ sushigoal {
 	top:1px;
 }
 
-.button.pause {
-  width: 74px;
-  height: 74px;
-  border-style: solid;
-  border-width: 37px;
-  border-color: #202020;
-  border-style: double;
-  border-width: 0px 37px 0px 37px;
-  border-width: 0px 0px 0px 37px;
-  border-color: #202020;
+.row .btn {
+  margin-bottom:5px;
 }
+
 
 .base-timer {
   position: relative;
@@ -312,4 +321,23 @@ sushigoal {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#gameover {
+  position: fixed;
+  right: 0;
+  left: 0;
+  top:0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:auto;
+  margin-bottom:auto;
+  width: 0%;
+  height: 0%;
+  background-color: red;
+  background-image: url(./images/gameover.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }

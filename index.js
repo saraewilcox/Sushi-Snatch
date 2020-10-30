@@ -1,4 +1,5 @@
 let score = 0;
+let highscore = localStorage.getItem("highscore");
 let isSushiArray = ["./images/sushi_1.png", "./images/sushi_4.png", "./images/sushi_5.png", "./images/cat_sushi.png", "./images/cat_sushi_2.png"]
 
 document.getElementById('gameboard').style.display = 'none';
@@ -36,7 +37,7 @@ function setUpModeButtons(){
         resetGame();
 				game.setLevel(3);
 			}
-			startGame();
+      startGame();
 		});
 	}
 }
@@ -45,8 +46,8 @@ function setUpModeButtons(){
 function startGame() {
   document.getElementById('gameboard').style.display = 'block';
   game.loop()
-  const soundToggle = document.getElementById("toggleSound");
-  soundToggle.addEventListener("click", this.handleAudioClick);
+  document.getElementById('pause-button').addEventListener('click', pause);
+
 }
 
 function random(min,max){
@@ -58,10 +59,10 @@ function dropSushi(){
   let velocity = 0
 
   switch (game.level) {
-    case 1 : velocity=(Math.random() * (2 - 1) + 1); 
+    case 1 : velocity=(Math.random() * (1 - 1) + 1); 
         break;
 
-    case 2 : velocity=(Math.random() * (6 - 1) + 1);
+    case 2 : velocity=(Math.random() * (3 - 1) + 1);
         break;
     
     case 3 : velocity=(Math.random() * (10 - 1) + 1);
@@ -73,7 +74,6 @@ function dropSushi(){
 
   let randomElement = isSushiArray[Math.floor(Math.random() * isSushiArray.length)]
   
-  //console.log(randomElement)
   let isCat = randomElement.includes('cat')
 
   game.sushiArray.push(new Sushi(game, height, velocity, width, randomElement, isCat))
@@ -100,11 +100,25 @@ function resetGame() {
   clearInterval(startTimer);
   score = 0;
   this.isRunning = false;
-  //timeLeft = 0;
   startTimer = null;
-
-  //document.getElementById("timeLeft").innerHTML = timeLeft;
 }
+
+function stopDraw(){
+  let $gameover = $('#gameover');
+
+  grow = function (size) {
+      if (size < 50) {
+          console.log(size);
+          $gameover.css('width', size + '%');
+          $gameover.css('height', size + '%');
+          size++;
+          setTimeout(grow, 10, size);
+      }
+  }
+  grow(0);
+  this.isRunning=false;
+}
+
 ///////////////////////////////////////////////////////
 // countdown clock:
 // Credit: Mateusz Rybczonec
@@ -179,18 +193,6 @@ function startTimer() {
     }
   }, 1000);
 }
-/////////////////////////////////RE-DO THIS TO NOT BE ALERTS!!!!!!!!!!!!!!!!
-// function stopDraw(){
-//   if (score < 0) {
-//     alert("YOU LOST SOOOOOO MANY SUSHI") //play sad game over sound
-//   } else if (score === 0) {
-//     alert("NO SUSHI FOR YOU!")//play I'm so hungry sound
-//   } else { 
-//     alert(`YOU SAVED ${score} SUSHIS!`) //play I think I'm turning Japanese
-//   }
-//   this.isRunning=false;
-//   document.getElementById('score').innerHTML = 0;
-// }
 
 function formatTime(time) {
   const minutes = Math.floor(time / 60);
