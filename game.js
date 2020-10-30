@@ -9,6 +9,7 @@ class Game {
     this.level = 1;
     this.sound = false;
     this.isPause = false;
+    this.app=30;
     }
 
     setLevel(level) {
@@ -35,7 +36,7 @@ class Game {
         this.updateSushi();
         this.paintSushi();
         this.counter ++;
-        if (!game.isPause) {
+        if (this.isRunning=true) {
         window.requestAnimationFrame((timestamp) => this.loop(timestamp));
         } 
     } 

@@ -1,7 +1,6 @@
 let score = 0;
-let highscore = localStorage.getItem("highscore");
 let isSushiArray = ["./images/sushi_1.png", "./images/sushi_4.png", "./images/sushi_5.png", "./images/cat_sushi.png", "./images/cat_sushi_2.png"]
-
+let app=0;
 document.getElementById('gameboard').style.display = 'none';
 const myCanvas = document.getElementById('thecanvas');
 const ctx = myCanvas.getContext('2d');
@@ -10,7 +9,6 @@ let level = 1;
 let modeButtons = document.querySelectorAll(".mode");
 
 window.onload = () => {
-  //startGame();
   init();
 }
 init();
@@ -45,7 +43,6 @@ function setUpModeButtons(){
 function startGame() {
   document.getElementById('gameboard').style.display = 'block';
   game.loop()
-  document.getElementById('pause-button').addEventListener('click', pause);
 }
 
 function random(min,max){
@@ -58,13 +55,13 @@ function dropSushi(){
 
   switch (game.level) {
     case 1 : velocity=(Math.random() * (1 - 1) + 1); 
-        break;
+      break;
 
     case 2 : velocity=(Math.random() * (3 - 1) + 1);
-        break;
+      break;
     
     case 3 : velocity=(Math.random() * (10 - 1) + 1);
-    break;
+      break;
     }
 
   let width = (Math.random() * 25) + 50; 
@@ -93,13 +90,13 @@ myCanvas.addEventListener('mousedown', event => {
 function resetGame() {
   clearInterval(startTimer);
   score = 0;
+  //app = 0;
   this.isRunning = false;
-  startTimer = null;
+  //startTimer = null;
 }
 
 function stopDraw(){
   let $gameover = $('#gameover');
-
   grow = function (size) {
       if (size < 50) {
           console.log(size);
@@ -164,7 +161,6 @@ document.getElementById("app").innerHTML = `
   )}</span>
 </div>
 `;
-
 startTimer();
 
 function onTimesUp() {
@@ -183,7 +179,6 @@ function startTimer() {
 
     if (timeLeft === 0) {
       onTimesUp();
-      stopDraw();
     }
   }, 1000);
 }
