@@ -54,7 +54,17 @@ body.firstpage {
   float: left;
   position: absolute;
   padding-left: 150px;
-  padding-top: 50px;
+  padding-top: 80px;
+}
+
+#score {
+  font-size: 50px;
+  z-index: 20;
+  font-family: arial;
+  color: #d7e4d9;
+  user-select:none;
+  width:100%;
+  text-align:center;
 }
 
 body.gamepage {
@@ -110,15 +120,6 @@ body.gamepage {
 	top:1px;
 }
 
-#score {
-  font-size: 100px;
-  z-index: 20;
-  font-family: arial;
-  color: #d7e4d9;
-  user-select:none;
-  width:100%;
-  text-align:center;
-}
 
 .sushi {
   width: 100px;

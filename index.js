@@ -22,7 +22,6 @@ function init(){
 function setUpModeButtons(){
 	for(var i = 0; i < modeButtons.length; i++) {
 		modeButtons[i].addEventListener("click", function(){
-      
 			modeButtons[0].classList.remove("selected");
 			modeButtons[1].classList.remove("selected");
 			modeButtons[2].classList.remove("selected");
@@ -47,7 +46,6 @@ function startGame() {
   document.getElementById('gameboard').style.display = 'block';
   game.loop()
   document.getElementById('pause-button').addEventListener('click', pause);
-
 }
 
 function random(min,max){
@@ -70,12 +68,8 @@ function dropSushi(){
     }
 
   let width = (Math.random() * 25) + 50; 
-
-
   let randomElement = isSushiArray[Math.floor(Math.random() * isSushiArray.length)]
-  
   let isCat = randomElement.includes('cat')
-
   game.sushiArray.push(new Sushi(game, height, velocity, width, randomElement, isCat))
 }
 

@@ -27,7 +27,6 @@ class Game {
                 dropSushi(); break;
             }
         } 
-
     }
     
     loop (){
