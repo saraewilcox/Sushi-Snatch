@@ -9,8 +9,6 @@ body.firstpage {
 
 #thecanvas {
   margin: 0px auto;
-  /* border-radius: 15px;
-  background-image: url('images/conveyor_belt.jpg');  */
   background-size: contain;
   padding-bottom: 5px;
   border: 1px solid black;
@@ -29,22 +27,13 @@ body.firstpage {
 }
 
 #gameboard > #score {
-  font-size: 25px;
-  color: black;
+  font-size: 35px;
+  color: white;
   float: left;
   position: absolute;
   padding-left: 150px;
   padding-top: 100px;
 }
-
-/* #gameboard > #finalScore {
-  font-size: 47px;
-  color: black;
-  float: center;
-  position: absolute;
-  padding-left: 250px;
-  padding-top: 170px;
-} */
 
 body.gamepage {
   font-family: sans-serif;
@@ -98,16 +87,6 @@ body.gamepage {
 	position:relative;
 	top:1px;
 }
-
-/* #score {
-  font-size: 70px;
-  z-index: 20;
-  font-family: arial;
-  color: #d7e4d9;
-  user-select:none;
-  width:100%;
-  text-align:center;
-} */
 
 .sushi {
   width: 100px;
@@ -331,17 +310,3 @@ sushigoal {
   background-position: center center;
   z-index: -1;
 }
-
-/* #finalScore {
-  position: fixed;
-  right: 0;
-  left: 0;
-  top:0;
-  bottom: 0;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 450px;
-  margin-bottom:auto;
-  width: 0%;
-  height: 0%;
-} */

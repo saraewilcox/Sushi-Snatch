@@ -1,6 +1,4 @@
 let score = 0;
-let finalScore = 0;
-//let highscore = localStorage.getItem("highscore");
 let isSushiArray = ["./images/sushi_1.png", "./images/sushi_4.png", "./images/sushi_5.png", "./images/cat_sushi.png", "./images/cat_sushi_2.png"]
 let song = new Audio ("../Sushi_Snatch/audio/roa-music-sakura-2020.mp3");
 document.getElementById('gameboard').style.display = 'none';
@@ -86,7 +84,6 @@ myCanvas.addEventListener('mousedown', event => {
         document.getElementById('score').innerHTML = score;
         //console.log('sushi time')
       }
-      finalScore = document.getElementById('score').innerHTML;
     }
   })
 })
@@ -97,19 +94,10 @@ function resetGame() {
   this.isRunning = false;
 }
 
-// function setFinal () {
-//   finalScore = document.getElementById('score').innerHTML;
-// };
-
 function gameOver(){
-  //document.getElementById('start-button').style.display='none';
   document.getElementById('thecanvas').style.display = 'none';
-  // document.getElementById('score').style.display = 'block';
   document.getElementById('score').style.display = 'none';
   document.getElementById('app').style.display = 'none';
-  //document.getElementById('gameover').style.display = 'block';
-  //document.getElementById('highscorer').style.display = 'none';
-  //document.getElementById('restart-button').style.display = 'block';
    clock = 30;
 }
 
@@ -124,10 +112,6 @@ function gameOverDraw(){
       }
   }
   grow(0);
-  //this.isRunning=false;
-  //this.isPause=true;
-  //setFinal();
-  //console.log(finalScore);
 }
 
 ///////////////////////////////////////////////////////

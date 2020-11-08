@@ -1,7 +1,6 @@
-// Sushi - its really all the items falling here:
 class Sushi {
     constructor(game, height, velocity, width, src, isCat) { 
-      this.x = (Math.random() * (225 - 25) + 400);//drops sushi only at start of conveyor belt Math.floor(Math.random() * (225 - 25) + 400);
+      this.x = (Math.random() * (225 - 25) + 400);//drops objects only at start of conveyor belt 
       this.y = 0;
       this.width = width;
       this.velocity = velocity;
