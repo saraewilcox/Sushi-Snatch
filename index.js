@@ -1,7 +1,8 @@
 let score = 0;
-let highscore = localStorage.getItem("highscore");
+let finalScore = 0;
+//let highscore = localStorage.getItem("highscore");
 let isSushiArray = ["./images/sushi_1.png", "./images/sushi_4.png", "./images/sushi_5.png", "./images/cat_sushi.png", "./images/cat_sushi_2.png"]
-
+let song = new Audio ("../Sushi_Snatch/audio/roa-music-sakura-2020.mp3");
 document.getElementById('gameboard').style.display = 'none';
 const myCanvas = document.getElementById('thecanvas');
 const ctx = myCanvas.getContext('2d');
@@ -41,12 +42,10 @@ function setUpModeButtons(){
 	}
 }
 
-// Start game
 function startGame() {
   document.getElementById('gameboard').style.display = 'block';
   game.loop()
-  document.getElementById('pause-button').addEventListener('click', pause);
-
+  song.play();
 }
 
 function random(min,max){
@@ -69,12 +68,8 @@ function dropSushi(){
     }
 
   let width = (Math.random() * 25) + 50; 
-
-
   let randomElement = isSushiArray[Math.floor(Math.random() * isSushiArray.length)]
-  
   let isCat = randomElement.includes('cat')
-
   game.sushiArray.push(new Sushi(game, height, velocity, width, randomElement, isCat))
 }
 
@@ -91,6 +86,7 @@ myCanvas.addEventListener('mousedown', event => {
         document.getElementById('score').innerHTML = score;
         //console.log('sushi time')
       }
+      finalScore = document.getElementById('score').innerHTML;
     }
   })
 })
@@ -101,12 +97,26 @@ function resetGame() {
   this.isRunning = false;
 }
 
-function stopDraw(){
-  let $gameover = $('#gameover');
+// function setFinal () {
+//   finalScore = document.getElementById('score').innerHTML;
+// };
 
+function gameOver(){
+  //document.getElementById('start-button').style.display='none';
+  document.getElementById('thecanvas').style.display = 'none';
+  // document.getElementById('score').style.display = 'block';
+  document.getElementById('score').style.display = 'none';
+  document.getElementById('app').style.display = 'none';
+  //document.getElementById('gameover').style.display = 'block';
+  //document.getElementById('highscorer').style.display = 'none';
+  //document.getElementById('restart-button').style.display = 'block';
+   clock = 30;
+}
+
+function gameOverDraw(){
+  let $gameover = $('#gameover');
   grow = function (size) {
       if (size < 50) {
-          console.log(size);
           $gameover.css('width', size + '%');
           $gameover.css('height', size + '%');
           size++;
@@ -114,7 +124,10 @@ function stopDraw(){
       }
   }
   grow(0);
-  this.isRunning=false;
+  //this.isRunning=false;
+  //this.isPause=true;
+  //setFinal();
+  //console.log(finalScore);
 }
 
 ///////////////////////////////////////////////////////
@@ -187,7 +200,9 @@ function startTimer() {
 
     if (timeLeft === 0) {
       onTimesUp();
-      stopDraw();
+      gameOver();
+      gameOverDraw();
+      
     }
   }, 1000);
 }

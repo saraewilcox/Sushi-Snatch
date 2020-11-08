@@ -20,14 +20,18 @@
   </div>
   <input type="button" class="restart" value="Restart" onclick="location.href='game.html';">
   <div id="gameboard">
-    <div id="score" style="width:100px;height:50px">00</div>
+    <div id="score" style="width:100px;height:50px"><span id="Score">00</span></div>
+    <!-- <div id="finalScore" style="width:100px;height:50px"></div> -->
     <div id="app" style="width:100px;height:50px"></div>
     <canvas id="thecanvas" width="1050" height="600" style="border:1px solid #000000;"></canvas>
-    <div id="clockdiv">Time Left: </div>
     <div id="gameover"></div>
   </div>  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
   </div>
+  <!-- <div id="finalscore">
+    <span id="final">0</span>
+  </div> -->
 </body>
 <script src="sushi.js"></script>
 <script src="game.js"></script>

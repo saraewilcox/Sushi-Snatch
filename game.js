@@ -34,6 +34,7 @@ class Game {
         this.backgroundPaint();
         this.updateSushi();
         this.paintSushi();
+        song.play();//////////////
         this.counter ++;
         if (!game.isPause) {
         window.requestAnimationFrame((timestamp) => this.loop(timestamp));
