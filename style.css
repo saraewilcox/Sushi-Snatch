@@ -311,34 +311,16 @@ sushigoal {
   z-index: -1;
 }
 
-/* #finalscore-div {
+#finalscore-div {
   font-size: 20px;
   border: 3px solid #f39c12;
-  background-color: rgb(216, 123, 16);
+  background-color: rgb(212, 117, 40);
   text-align: center;
   color: white;
-  margin-top: 525px;
-  margin-left: 375px;
-} */
-
-#finalscore-div {
-/* box-shadow:inset 0px -3px 7px 0px #29bbff; */
-background:linear-gradient(to bottom, #f9c92d 5%, #fa9806 100%);
-border-radius:3px;
-border:1px solid #0b0e07;
-display:inline-block;
-cursor:pointer;
-color:#ffffff;
-font-family:Arial;
-font-size:25px;
-padding-top: 15px;
-padding-right: 15px;
-padding-left: 15px;
-text-decoration:none;
-text-emphasis: bold;
-text-shadow:0px 1px 0px #e6880d;
-margin-top: -250px;
-/* margin-left: 0px; */
-text-align: center;
-font-weight: bold;
+  font-weight: bold;
+  margin-top: -345px;
+  margin-left: 0px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
