@@ -1,7 +1,9 @@
 let score = 0;
+let finalscore = 0;
 let isSushiArray = ["./images/sushi_1.png", "./images/sushi_4.png", "./images/sushi_5.png", "./images/cat_sushi.png", "./images/cat_sushi_2.png"]
 let song = new Audio ("../Sushi_Snatch/audio/roa-music-sakura-2020.mp3");
 document.getElementById('gameboard').style.display = 'none';
+document.getElementById('finalscore-div').style.display='none';
 const myCanvas = document.getElementById('thecanvas');
 const ctx = myCanvas.getContext('2d');
 let game = new Game (myCanvas);
@@ -85,8 +87,12 @@ myCanvas.addEventListener('mousedown', event => {
         //console.log('sushi time')
       }
     }
+
   })
+  finalscore=score;
+document.getElementById('finalscore').innerHTML = finalscore;
 })
+
 
 function resetGame() {
   clearInterval(startTimer);
@@ -98,6 +104,7 @@ function gameOver(){
   document.getElementById('thecanvas').style.display = 'none';
   document.getElementById('score').style.display = 'none';
   document.getElementById('app').style.display = 'none';
+  document.getElementById('finalscore-div').style.display = 'block';
    clock = 30;
 }
 
